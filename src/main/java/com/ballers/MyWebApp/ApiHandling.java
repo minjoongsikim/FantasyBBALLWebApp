@@ -13,8 +13,8 @@ public class ApiHandling {
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
         BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null) {
+        String inputLine = in.readLine();
+        while ((inputLine != null)) {
             System.out.println(inputLine);
         }
         in.close();

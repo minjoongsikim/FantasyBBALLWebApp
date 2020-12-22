@@ -1,4 +1,4 @@
-package com.ballers.MyWebApp;
+package com.ballers.MyWebApp.Servlets;
 
 // import jdk.incubator.jpackage.internal.Log;
 
@@ -6,8 +6,8 @@ import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "ServletOne", value = "/servlet-one")
+public class ServletOne extends HttpServlet {
     private String message;
 
     public void init() {

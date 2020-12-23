@@ -14,9 +14,6 @@ public class Main {
     public static void main(String args[]) throws IOException, ParserConfigurationException, SAXException {
         URL url = new URL("https://www.fantasybasketballnerd.com/service/draft-projections");
         Node[] n = xmlParser.arrayCreator(url);
-
-
-
     }
 
 }

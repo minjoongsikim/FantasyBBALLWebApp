@@ -15,11 +15,10 @@ import java.net.URL;
 
 public class xmlParser {
     public static Node[] arrayCreator(URL url) throws IOException, SAXException, ParserConfigurationException {
-        File inputFile = createFile(url);
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(inputFile);
+        Document doc = builder.parse(url.openStream());
         NodeList nList = doc.getElementsByTagName("Player");
         Node[] array = new Node[nList.getLength()];
         for (int i = 0; i < nList.getLength(); i ++){
@@ -33,23 +32,4 @@ public class xmlParser {
 
         return array;
     }
-    public static File createFile(URL url) throws IOException {
-
-        File f = new File("C:\\Users\\minmi\\IdeaProjects\\MyWebApp\\src\\main\\java\\com\\ballers\\MyWebApp\\info.xml");
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-
-        OutputStream outStream = new FileOutputStream(f);
-        String inputLine;
-        while ((inputLine = in.readLine()) != null) {
-            outStream.write(inputLine.getBytes());
-        }
-
-        outStream.close();
-        in.close();
-
-        return f;
-    }
-
-
 }

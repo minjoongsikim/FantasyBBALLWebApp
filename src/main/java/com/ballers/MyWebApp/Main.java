@@ -15,7 +15,10 @@ public class Main {
     public static void main(String args[]) throws IOException, ParserConfigurationException, SAXException {
         URL url = new URL("https://www.fantasybasketballnerd.com/service/draft-projections");
         Node[] n = xmlParser.arrayCreator(url);
-        RankingsGenerator.sortByRank(n, "REB");
+        RankingsGenerator.sortByRank(n, "PTS");
+        ((Element)n[0]).setAttribute("value",".5");
+        System.out.println( ((Element) n[0]).getAttribute("value"));
+        System.out.println( ((Element) n[0]).getElementsByTagName("name").item(0).getTextContent());
     }
 
 }

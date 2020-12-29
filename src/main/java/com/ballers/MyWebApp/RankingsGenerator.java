@@ -2,6 +2,11 @@ package com.ballers.MyWebApp;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
+
+import java.io.IOException;
+import java.net.URL;
+import javax.xml.parsers.*;
 
 import static java.lang.Integer.parseInt;
 
@@ -26,6 +31,12 @@ public class RankingsGenerator {
         }
         return eArray;
     }
+    public static Element[] getOrderedArray(URL url, String toSort) throws IOException, ParserConfigurationException, SAXException {
+        Node[] n = xmlParser.arrayCreator(url);
+        Element[] e = sortByRank(n, toSort);
+        return e;
+    }
+
     public static void quickSort(Element arr[], int begin, int end, String cat) {
         if (begin < end) {
             int partitionIndex = partition(arr, begin, end, cat);

@@ -19,7 +19,9 @@ public class RankingsGenerator {
         for (int i = 0; i < array.length; i ++) {
             eArray[i] = (Element) array[i];
         }
-
+        if (cat.equals("0")) {
+            return eArray;
+        }
         if (cat.equals("name") || cat.equals("team") || cat.equals("position")) {
             stringQuickSort(eArray, 0, eArray.length - 1, cat);
         } else {

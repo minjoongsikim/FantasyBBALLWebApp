@@ -82,15 +82,33 @@ public class RankingsAlgorithm {
         calculatedValue += PTS / 241488 + AST / 52704 + REB / 96768 + STL / 16416 + BLK / 10584 + THREES / 26352 - TO / 31320;
         if (FT != 0) {
             if (position.equals("C"))
-            estimatedFTA += .235484821692 * PTS;
-            estimatedFTM = estimatedFTA * FT;
-            calculatedValue += 0.774891774892 - (38664 - estimatedFTM) / (49896 - estimatedFTA);
+            estimatedFTM += 	0.16426 * PTS;
+            estimatedFTA = estimatedFTM * (1/FT);
+            calculatedValue += (0.774891774892 - (38664 - estimatedFTM) / (49896 - estimatedFTA))/0.774891774892;
+            if (position.equals("PF"))
+                estimatedFTM += 	0.1579 * PTS;
+            estimatedFTA = estimatedFTM * (1/FT);
+            calculatedValue += (0.774891774892 - (38664 - estimatedFTM) / (49896 - estimatedFTA))/0.774891774892;
+            if (position.equals("PG"))
+                estimatedFTM += 0.1746 * PTS;
+            estimatedFTA = estimatedFTM * (1/FT);
+            calculatedValue += (0.774891774892 - (38664 - estimatedFTM) / (49896 - estimatedFTA))/0.774891774892;
+            if (position.equals("SF"))
+                estimatedFTM += 0.1546 * PTS;
+            estimatedFTA = estimatedFTM * (1/FT);
+            calculatedValue += (0.774891774892 - (38664 - estimatedFTM) / (49896 - estimatedFTA))/0.774891774892;
+            if (position.equals("SG"))
+                estimatedFTM += 0.1483 * PTS;
+            estimatedFTA = estimatedFTM * (1/FT);
+            calculatedValue += (0.774891774892 - (38664 - estimatedFTM) / (49896 - estimatedFTA))/0.774891774892;
         }
         if (FG != 0) {
-            //estimatedFGA += .235484821692 * PTS;
-            //estimatedFGM = estimatedFGA * FG;
-            //calculatedValue += 0.774891774892 - (38664 - estimatedFTM) / (49896 - estimatedFTA);
+            if (position.equals("C")) {
+                estimatedFGM = .3922 * PTS;
+                estimatedFGA = estimatedFGM/FG;
+                calculatedValue += 0.460 - (176688 - estimatedFGM) / (383616 - estimatedFGA);
+            }
         }
-        return 0;
+        return calculatedValue;
     }
 }

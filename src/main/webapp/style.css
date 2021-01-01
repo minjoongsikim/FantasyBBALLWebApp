@@ -1,27 +1,63 @@
-h1 {
-    font-size: 1000px;
+.button {
+    background-color: #FFFFFF; /* White */
+    border: none;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
-a.button3 {
-    display: inline-block;
-    padding: 0.3em 1.2em;
-    margin: 0 0.3em 0.3em 0;
-    border-radius: 2em;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    color: #FFFFFF;
-    background-color: #4eb5f1;
-    text-align: center;
-    transition: all 0.2s;
-}
-a.button3:hover {
+.button:hover {
     background-color: #4095c6;
 }
 
+th {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.styled-table {
+    border-collapse: collapse; /* no space between cell borders */
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* subtle shadow around table */
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px; /* increased spacing between header and data */
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd; /* added separation between lines */
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; /* every other line shaded for readability */
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879; /* bottom of table has thicker border */
+}
+
 @media all and (max-width:30em) {
-    a.button3 {
+    .button {
         display:block;
         margin:0.2em auto;
     }

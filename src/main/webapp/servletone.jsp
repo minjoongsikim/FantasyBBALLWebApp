@@ -13,52 +13,36 @@
         <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     </head>
     <body>
-
-        <table class = "sortable styled-table">
-            <tr>
-                <th>Player</th>
-                <th>Team</th>
-                <th>Position</th>
-                <th>Games</th>
-                <th>PTS</th>
-                <th>AST</th>
-                <th>REB</th>
-                <th>FG%</th>
-                <th>FT%</th>
-                <th>STL</th>
-                <th>BLK</th>
-                <th>3PM</th>
-                <th>TO</th>
-            </tr>
-            <%
-
-                URL url = new URL("https://www.fantasybasketballnerd.com/service/draft-projections");
-                Element[] e = new Element[0];
-                String category = "0";
-                try {
-                    e = RankingsGenerator.getOrderedArray(url, category);
-                } catch (ParserConfigurationException | SAXException parserConfigurationException) {
-                    parserConfigurationException.printStackTrace();
-                }
-
-                for (int i = 0; i < e.length; i++) {
-                    int games = Integer.parseInt(e[i].getElementsByTagName("Games").item(0).getTextContent()); %>
-                    <tr class = "item">
-                        <td><%=e[i].getElementsByTagName("name").item(0).getTextContent()%></td>
-                        <td><%=e[i].getElementsByTagName("team").item(0).getTextContent()%></td>
-                        <td><%=e[i].getElementsByTagName("position").item(0).getTextContent()%></td>
-                        <td><%=e[i].getElementsByTagName("Games").item(0).getTextContent()%></td>
-                        <td><%=Math.floor(Double.parseDouble(e[i].getElementsByTagName("PTS").item(0).getTextContent())/games * 100)/100%></td>
-                        <td><%=Math.floor(Double.parseDouble(e[i].getElementsByTagName("AST").item(0).getTextContent())/games * 100)/100%></td>
-                        <td><%=Math.floor(Double.parseDouble(e[i].getElementsByTagName("REB").item(0).getTextContent())/games * 100)/100%></td>
-                        <td><%=e[i].getElementsByTagName("FG").item(0).getTextContent()%></td>
-                        <td><%=e[i].getElementsByTagName("FT").item(0).getTextContent()%></td>
-                        <td><%=Math.floor(Double.parseDouble(e[i].getElementsByTagName("STL").item(0).getTextContent())/games * 100)/100%></td>
-                        <td><%=Math.floor(Double.parseDouble(e[i].getElementsByTagName("BLK").item(0).getTextContent())/games * 100)/100%></td>
-                        <td><%=Math.floor(Double.parseDouble(e[i].getElementsByTagName("THREES").item(0).getTextContent())/games * 100)/100%></td>
-                        <td><%=Math.floor(Double.parseDouble(e[i].getElementsByTagName("TO").item(0).getTextContent())/games * 100)/100%></td>
-                    </tr>
-            <% } %>
-        </table>
+        <header>
+            <img src = "Photos/fantasyimage.png">
+            <nav>
+                <ul>
+                    <li><a href = "#"> Home </a></li>
+                    <li><a href = "./servletone.jsp"> Servlet One </a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Terms of use</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <table class = "sortable styled-table">
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                </tr>
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Eve</td>
+                    <td>Jackson</td>
+                    <td>94</td>
+                </tr>
+            </table>
+        </main>
     </body>
 </html>

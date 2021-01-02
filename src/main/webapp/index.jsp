@@ -16,75 +16,77 @@
     <body>
         <!-- Header -->
         <header>
+            <img src = "Photos/fantasyimage.png">
             <nav>
                 <ul>
                     <li><a href = "#"> Home </a></li>
                     <li><a href = "./servletone.jsp"> Servlet One </a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Terms of use</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
         </header>
-
-        <p>Welcome to the Fantasy Basketball WebApp</p>
-
-        <h1> 2020-2021 NBA SEASON PROJECTIONS</h1>
-        <table class = "sortable styled-table">
-            <tr>
-                <th>Player</th>
-                <th>Team</th>
-                <th>Position</th>
-                <th>Games</th>
-                <th>PTS</th>
-                <th>AST</th>
-                <th>REB</th>
-                <th>FG%</th>
-                <th>FT%</th>
-                <th>STL</th>
-                <th>BLK</th>
-                <th>3PM</th>
-                <th>TO</th>
-            </tr>
-            <%
-
-                URL url = new URL("https://www.fantasybasketballnerd.com/service/draft-projections");
-                Element[] e = new Element[0];
-                String category = "0";
-                try {
-                    e = RankingsGenerator.getOrderedArray(url, category);
-                } catch (ParserConfigurationException | SAXException parserConfigurationException) {
-                    parserConfigurationException.printStackTrace();
-                }
-
-                for (Element element : e) {
-                    int games = Integer.parseInt(element.getElementsByTagName("Games").item(0).getTextContent()); %>
-                <tr class="item">
-                    <td><%=element.getElementsByTagName("name").item(0).getTextContent()%>
-                    </td>
-                    <td><%=element.getElementsByTagName("team").item(0).getTextContent()%>
-                    </td>
-                    <td><%=element.getElementsByTagName("position").item(0).getTextContent()%>
-                    </td>
-                    <td><%=element.getElementsByTagName("Games").item(0).getTextContent()%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("PTS").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("AST").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("REB").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=element.getElementsByTagName("FG").item(0).getTextContent()%>
-                    </td>
-                    <td><%=element.getElementsByTagName("FT").item(0).getTextContent()%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("STL").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("BLK").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("THREES").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("TO").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
+        <main>
+            <table class = "sortable styled-table">
+                <tr>
+                    <th>Player</th>
+                    <th>Team</th>
+                    <th>Position</th>
+                    <th>Games</th>
+                    <th>PTS</th>
+                    <th>AST</th>
+                    <th>REB</th>
+                    <th>FG%</th>
+                    <th>FT%</th>
+                    <th>STL</th>
+                    <th>BLK</th>
+                    <th>3PM</th>
+                    <th>TO</th>
                 </tr>
-            <% } %>
-        </table>
+                <%
+
+                    URL url = new URL("https://www.fantasybasketballnerd.com/service/draft-projections");
+                    Element[] e = new Element[0];
+                    String category = "0";
+                    try {
+                        e = RankingsGenerator.getOrderedArray(url, category);
+                    } catch (ParserConfigurationException | SAXException parserConfigurationException) {
+                        parserConfigurationException.printStackTrace();
+                    }
+
+                    for (Element element : e) {
+                        int games = Integer.parseInt(element.getElementsByTagName("Games").item(0).getTextContent()); %>
+                    <tr class="item">
+                        <td><%=element.getElementsByTagName("name").item(0).getTextContent()%>
+                        </td>
+                        <td><%=element.getElementsByTagName("team").item(0).getTextContent()%>
+                        </td>
+                        <td><%=element.getElementsByTagName("position").item(0).getTextContent()%>
+                        </td>
+                        <td><%=element.getElementsByTagName("Games").item(0).getTextContent()%>
+                        </td>
+                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("PTS").item(0).getTextContent()) / games * 100) / 100%>
+                        </td>
+                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("AST").item(0).getTextContent()) / games * 100) / 100%>
+                        </td>
+                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("REB").item(0).getTextContent()) / games * 100) / 100%>
+                        </td>
+                        <td><%=element.getElementsByTagName("FG").item(0).getTextContent()%>
+                        </td>
+                        <td><%=element.getElementsByTagName("FT").item(0).getTextContent()%>
+                        </td>
+                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("STL").item(0).getTextContent()) / games * 100) / 100%>
+                        </td>
+                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("BLK").item(0).getTextContent()) / games * 100) / 100%>
+                        </td>
+                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("THREES").item(0).getTextContent()) / games * 100) / 100%>
+                        </td>
+                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("TO").item(0).getTextContent()) / games * 100) / 100%>
+                        </td>
+                    </tr>
+                <% } %>
+            </table>
+        </main>
     </body>
 </html>

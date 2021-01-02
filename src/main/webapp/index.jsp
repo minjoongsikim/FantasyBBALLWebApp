@@ -10,7 +10,6 @@
     <head>
         <title>JSP - Index / Home Page</title>
         <link href = "./style.css" type = "text/css" rel = "stylesheet">
-        <link rel= "stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     </head>
     <body>
@@ -19,7 +18,7 @@
             <img src = "Photos/fantasyimage.png">
             <nav>
                 <ul>
-                    <li><a href = "#"> Home </a></li>
+                    <li><a href = "#" class = "active"> Home </a></li>
                     <li><a href = "./servletone.jsp"> Servlet One </a></li>
                     <li><a href="#">Pricing</a></li>
                     <li><a href="#">Terms of use</a></li>
@@ -28,6 +27,9 @@
             </nav>
         </header>
         <main>
+            <h1> Welcome to the Fantasy Basketball WebApp</h1>
+            <p> Created by Larry Bird</p>
+            <h2> 2020-2021 PROJECTIONS</h2>
             <table class = "sortable styled-table">
                 <tr>
                     <th>Player</th>
@@ -57,34 +59,34 @@
 
                     for (Element element : e) {
                         int games = Integer.parseInt(element.getElementsByTagName("Games").item(0).getTextContent()); %>
-                    <tr class="item">
-                        <td><%=element.getElementsByTagName("name").item(0).getTextContent()%>
-                        </td>
-                        <td><%=element.getElementsByTagName("team").item(0).getTextContent()%>
-                        </td>
-                        <td><%=element.getElementsByTagName("position").item(0).getTextContent()%>
-                        </td>
-                        <td><%=element.getElementsByTagName("Games").item(0).getTextContent()%>
-                        </td>
-                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("PTS").item(0).getTextContent()) / games * 100) / 100%>
-                        </td>
-                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("AST").item(0).getTextContent()) / games * 100) / 100%>
-                        </td>
-                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("REB").item(0).getTextContent()) / games * 100) / 100%>
-                        </td>
-                        <td><%=element.getElementsByTagName("FG").item(0).getTextContent()%>
-                        </td>
-                        <td><%=element.getElementsByTagName("FT").item(0).getTextContent()%>
-                        </td>
-                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("STL").item(0).getTextContent()) / games * 100) / 100%>
-                        </td>
-                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("BLK").item(0).getTextContent()) / games * 100) / 100%>
-                        </td>
-                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("THREES").item(0).getTextContent()) / games * 100) / 100%>
-                        </td>
-                        <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("TO").item(0).getTextContent()) / games * 100) / 100%>
-                        </td>
-                    </tr>
+                <tr class="item">
+                    <td><%=element.getElementsByTagName("name").item(0).getTextContent()%>
+                    </td>
+                    <td><%=element.getElementsByTagName("team").item(0).getTextContent()%>
+                    </td>
+                    <td><%=element.getElementsByTagName("position").item(0).getTextContent()%>
+                    </td>
+                    <td><%=element.getElementsByTagName("Games").item(0).getTextContent()%>
+                    </td>
+                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("PTS").item(0).getTextContent()) / games * 100) / 100%>
+                    </td>
+                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("AST").item(0).getTextContent()) / games * 100) / 100%>
+                    </td>
+                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("REB").item(0).getTextContent()) / games * 100) / 100%>
+                    </td>
+                    <td><%=element.getElementsByTagName("FG").item(0).getTextContent()%>
+                    </td>
+                    <td><%=element.getElementsByTagName("FT").item(0).getTextContent()%>
+                    </td>
+                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("STL").item(0).getTextContent()) / games * 100) / 100%>
+                    </td>
+                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("BLK").item(0).getTextContent()) / games * 100) / 100%>
+                    </td>
+                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("THREES").item(0).getTextContent()) / games * 100) / 100%>
+                    </td>
+                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("TO").item(0).getTextContent()) / games * 100) / 100%>
+                    </td>
+                </tr>
                 <% } %>
             </table>
         </main>

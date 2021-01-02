@@ -17,8 +17,8 @@
             <img src = "Photos/fantasyimage.png">
             <nav>
                 <ul>
-                    <li><a href = "#"> Home </a></li>
-                    <li><a href = "./servletone.jsp"> Servlet One </a></li>
+                    <li><a href = "./index.jsp"> Home </a></li>
+                    <li><a href = "#" class = "active"> Servlet One </a></li>
                     <li><a href="#">Pricing</a></li>
                     <li><a href="#">Terms of use</a></li>
                     <li><a href="#">Contact</a></li>

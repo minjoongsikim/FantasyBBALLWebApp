@@ -56,10 +56,40 @@ th {
     border-bottom: 2px solid #009879; /* bottom of table has thicker border */
 }
 
-@media all and (max-width:30em) {
-    .button {
-        display:block;
-        margin:0.2em auto;
-    }
+nav ul {
+    list-style-type: none;
+    text-align: center;
 }
 
+nav li {
+    display: inline-block;
+    text-align: center;
+    padding: 15px;
+}
+
+nav li a {
+    font-family: din-2014, sans-serif;
+    font-size: 15px;
+    color: rgb(150,150,150);
+    text-decoration: none;
+    background-color: none;
+}
+
+nav li a:hover {
+    color: black;
+}
+
+p {
+    font-family: din-2014, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    margin: 30px 20%;
+    color: rgb(150,150,150);
+}
+h1 {
+    font-family: din-2014, sans-serif;
+    font-size: 53px;
+    text-align: center;
+    margin: 25px 0px;
+    color: #D5AF39;
+}

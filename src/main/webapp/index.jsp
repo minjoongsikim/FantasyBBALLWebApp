@@ -15,20 +15,15 @@
     </head>
     <body>
         <!-- Header -->
-        <header class="w3-display-container w3-content w3-center" style="max-width:1500px">
-            <img class="w3-image" src="./Photos/fantasyimage.png" alt="Fantasy Image" width=768 height=432>
-            <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-gray w3-center">
-                <h1 class="w3-hide-medium w3-hide-small w3-xlarge">LUKE & MINJOONG</h1>
-                <h5 class="w3-hide-large" style="white-space:nowrap">LUKE & MINJOONG</h5>
-                <h3 class="w3-hide-medium w3-hide-small">FANTASY BASKETBALL</h3>
-            </div>
-
-            <!-- Navbar (placed at the bottom of the header image) -->
-            <div class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small" style="bottom:-16px">
-                <a href="#" class="w3-bar-item w3-button">Home</a>
-                <a href="./servletone.jsp" class="w3-bar-item w3-button">Servlet One</a>
-            </div>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href = "#"> Home </a></li>
+                    <li><a href = "./servletone.jsp"> Servlet One </a></li>
+                </ul>
+            </nav>
         </header>
+
         <p>Welcome to the Fantasy Basketball WebApp</p>
 
         <h1> 2020-2021 NBA SEASON PROJECTIONS</h1>

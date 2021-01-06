@@ -30,18 +30,47 @@
         <main>
             <table class = "sortable styled-table">
                 <tr>
+                    <th>Rank</th>
                     <th>Player</th>
-                    <th>Calculated Value</th>
+                    <th>Value</th>
+                    <th>Team</th>
+                    <th>Position</th>
+                    <th>Games</th>
+                    <th>PTS</th>
+                    <th>AST</th>
+                    <th>REB</th>
+                    <th>FG%</th>
+                    <th>FT%</th>
+                    <th>STL</th>
+                    <th>BLK</th>
+                    <th>3PM</th>
+                    <th>TO</th>
+
                 </tr>
                 <%
                     @SuppressWarnings("unchecked") // so it doesn't throw an error (know I want a vector of Players)
                     Vector<Player> players = (Vector<Player>) session.getAttribute("players");
+                    Player.sortByValue(players);
 
                 for (Player p : players) { %>
 
                 <tr class="item">
+                    <td><%=p.rank%></td>
                     <td><%=p.NAME%></td>
                     <td><%=p.findValue()%></td>
+                    <td><%=p.TEAM%></td>
+                    <td><%=p.POS%></td>
+                    <td><%=p.GAMES%></td>
+                    <td><%=p.PTS%></td>
+                    <td><%=p.AST%></td>
+                    <td><%=p.REB%></td>
+                    <td><%=p.FG%></td>
+                    <td><%=p.FT%></td>
+                    <td><%=p.STL%></td>
+                    <td><%=p.BLK%></td>
+                    <td><%=p.THREES%></td>
+                    <td><%=p.TO%></td>
+
                 </tr>
             <% } %>
 

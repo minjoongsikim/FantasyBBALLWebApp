@@ -41,6 +41,7 @@ public class Player {
     public double totalTHREES;
     public double totalTO;
     public int rank;
+
     public Player(Element e) {
         NAME = e.getElementsByTagName("name").item(0).getTextContent();
         TEAM = e.getElementsByTagName("team").item(0).getTextContent();
@@ -62,6 +63,7 @@ public class Player {
         totalTHREES = Double.parseDouble(e.getElementsByTagName("THREES").item(0).getTextContent());
         TO = Math.floor(Double.parseDouble(e.getElementsByTagName("TO").item(0).getTextContent()) / GAMES * 100) / 100;
         totalTO = Double.parseDouble(e.getElementsByTagName("TO").item(0).getTextContent());
+        rank = 0;
     }
 
     public double findValue() {
@@ -74,65 +76,65 @@ public class Player {
         /**
          * Using Z score to calculate player additive values.
          */
-        calculatedValue += (totalPTS-(.878*443.254))/(.878*422);
-        calculatedValue += (totalAST-(.878*97.45))/(.878*114);
-        calculatedValue += (totalREB-(.878*182.138))/(.878*168);
-        calculatedValue += (totalSTL-(.878*30.562))/(.878*27.02);
-        calculatedValue += (totalBLK-(.878*20.098))/(.878*25.12);
-        calculatedValue += (totalTHREES-(.878*47.84))/(.878*55);
-        calculatedValue -= (totalTO-(.878*55.326))/(.878*54);
+        calculatedValue += (totalPTS - (.878 * 443.254)) / (.878 * 422);
+        calculatedValue += (totalAST - (.878 * 97.45)) / (.878 * 114);
+        calculatedValue += (totalREB - (.878 * 182.138)) / (.878 * 168);
+        calculatedValue += (totalSTL - (.878 * 30.562)) / (.878 * 27.02);
+        calculatedValue += (totalBLK - (.878 * 20.098)) / (.878 * 25.12);
+        calculatedValue += (totalTHREES - (.878 * 47.84)) / (.878 * 55);
+        calculatedValue -= (totalTO - (.878 * 55.326)) / (.878 * 54);
         if (FT != 0) {
             if (POS.equals("C")) {
                 estimatedFTM += 0.16426 * totalPTS;
                 estimatedFTA = estimatedFTM * (1 / FT);
-                calculatedValue += (((FT-0.772228856802)*estimatedFTA) - .001142)/(.878*12.66152);
+                calculatedValue += (((FT - 0.772228856802) * estimatedFTA) - .001142) / (.878 * 12.66152);
             }
             if (POS.equals("PF")) {
                 estimatedFTM += 0.1579 * totalPTS;
                 estimatedFTA = estimatedFTM * (1 / FT);
-                calculatedValue += (((FT-0.772228856802)*estimatedFTA) - .001142)/(.878*12.66152);
+                calculatedValue += (((FT - 0.772228856802) * estimatedFTA) - .001142) / (.878 * 12.66152);
             }
             if (POS.equals("PG")) {
                 estimatedFTM += 0.1746 * totalPTS;
                 estimatedFTA = estimatedFTM * (1 / FT);
-                calculatedValue += (((FT-0.772228856802)*estimatedFTA) - .001142)/(.878*12.66152);
+                calculatedValue += (((FT - 0.772228856802) * estimatedFTA) - .001142) / (.878 * 12.66152);
             }
             if (POS.equals("SF")) {
                 estimatedFTM += 0.1546 * totalPTS;
                 estimatedFTA = estimatedFTM * (1 / FT);
-                calculatedValue += (((FT-0.772228856802)*estimatedFTA) - .001142)/(.878*12.66152);
+                calculatedValue += (((FT - 0.772228856802) * estimatedFTA) - .001142) / (.878 * 12.66152);
             }
             if (POS.equals("SG")) {
                 estimatedFTM += 0.1483 * totalPTS;
                 estimatedFTA = estimatedFTM * (1 / FT);
-                calculatedValue += (((FT-0.772228856802)*estimatedFTA) - .001142)/(.878*12.66152);
+                calculatedValue += (((FT - 0.772228856802) * estimatedFTA) - .001142) / (.878 * 12.66152);
             }
         }
         if (FG != 0) {
             if (POS.equals("C")) {
                 estimatedFGM = .3922 * totalPTS;
-                estimatedFGA = estimatedFGM/FG;
-                calculatedValue += (((FG-0.461647088299)*estimatedFGA)-(.004832))/(.878*25.02);
+                estimatedFGA = estimatedFGM / FG;
+                calculatedValue += (((FG - 0.461647088299) * estimatedFGA) - (.004832)) / (.878 * 25.02);
             }
             if (POS.equals("PF")) {
                 estimatedFGM = .3666 * totalPTS;
-                estimatedFGA = estimatedFGM/FG;
-                calculatedValue += (((FG-0.461647088299)*estimatedFGA)-(.004832))/(.878*25.02);
+                estimatedFGA = estimatedFGM / FG;
+                calculatedValue += (((FG - 0.461647088299) * estimatedFGA) - (.004832)) / (.878 * 25.02);
             }
             if (POS.equals("PG")) {
                 estimatedFGM = .3594 * totalPTS;
-                estimatedFGA = estimatedFGM/FG;
-                calculatedValue += (((FG-0.461647088299)*estimatedFGA)-(.004832))/(.878*25.02);
+                estimatedFGA = estimatedFGM / FG;
+                calculatedValue += (((FG - 0.461647088299) * estimatedFGA) - (.004832)) / (.878 * 25.02);
             }
             if (POS.equals("SF")) {
                 estimatedFGM = .3591 * totalPTS;
-                estimatedFGA = estimatedFGM/FG;
-                calculatedValue += (((FG-0.461647088299)*estimatedFGA)-(.004832))/(.878*25.02);
+                estimatedFGA = estimatedFGM / FG;
+                calculatedValue += (((FG - 0.461647088299) * estimatedFGA) - (.004832)) / (.878 * 25.02);
             }
             if (POS.equals("SG")) {
                 estimatedFGM = .3532 * totalPTS;
-                estimatedFGA = estimatedFGM/FG;
-                calculatedValue += (((FG-0.461647088299)*estimatedFGA)-(.004832))/(.878*25.02);
+                estimatedFGA = estimatedFGM / FG;
+                calculatedValue += (((FG - 0.461647088299) * estimatedFGA) - (.004832)) / (.878 * 25.02);
             }
 
         }

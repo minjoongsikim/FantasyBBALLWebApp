@@ -3,6 +3,8 @@
 <%@ page import="org.w3c.dom.Element" %>
 <%@ page import="javax.xml.parsers.ParserConfigurationException" %>
 <%@ page import="org.xml.sax.SAXException" %>
+<%@ page import="com.ballers.MyWebApp.Player" %>
+<%@ page import="java.util.Vector" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
@@ -19,7 +21,7 @@
             <nav>
                 <ul>
                     <li><a href = "#" class = "active"> Home </a></li>
-                    <li><a href = "./servletone.jsp"> Servlet One </a></li>
+                    <li><a href = "./servletone.jsp"> Player Values </a></li>
                     <li><a href="#">Pricing</a></li>
                     <li><a href="#">Terms of use</a></li>
                     <li><a href="#">Contact</a></li>
@@ -57,37 +59,29 @@
                         parserConfigurationException.printStackTrace();
                     }
 
+                    Vector<Player> players = new Vector<>(); // to be accessed across pages
+
                     for (Element element : e) {
-                        int games = Integer.parseInt(element.getElementsByTagName("Games").item(0).getTextContent()); %>
-                <tr class="item">
-                    <td><%=element.getElementsByTagName("name").item(0).getTextContent()%>
-                    </td>
-                    <td><%=element.getElementsByTagName("team").item(0).getTextContent()%>
-                    </td>
-                    <td><%=element.getElementsByTagName("position").item(0).getTextContent()%>
-                    </td>
-                    <td><%=element.getElementsByTagName("Games").item(0).getTextContent()%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("PTS").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("AST").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("REB").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=element.getElementsByTagName("FG").item(0).getTextContent()%>
-                    </td>
-                    <td><%=element.getElementsByTagName("FT").item(0).getTextContent()%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("STL").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("BLK").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("THREES").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                    <td><%=Math.floor(Double.parseDouble(element.getElementsByTagName("TO").item(0).getTextContent()) / games * 100) / 100%>
-                    </td>
-                </tr>
-                <% } %>
+                        Player singlePlayer = new Player(element);
+                        players.add(singlePlayer);%>
+
+                        <tr class="item">
+                            <td><%=singlePlayer.NAME%></td>
+                            <td><%=singlePlayer.TEAM%></td>
+                            <td><%=singlePlayer.POS%></td>
+                            <td><%=singlePlayer.GAMES%></td>
+                            <td><%=singlePlayer.PTS%></td>
+                            <td><%=singlePlayer.AST%></td>
+                            <td><%=singlePlayer.REB%></td>
+                            <td><%=singlePlayer.FG%></td>
+                            <td><%=singlePlayer.FT%></td>
+                            <td><%=singlePlayer.STL%></td>
+                            <td><%=singlePlayer.BLK%></td>
+                            <td><%=singlePlayer.THREES%></td>
+                            <td><%=singlePlayer.TO%></td>
+                        </tr>
+                <% }
+                session.setAttribute("players", players); // adding the vector of player info to be accessed on other pages %>
             </table>
         </main>
     </body>

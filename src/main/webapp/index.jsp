@@ -32,7 +32,8 @@
             <h1> Welcome to the Fantasy Basketball WebApp</h1>
             <p> Created by Larry Bird</p>
             <h2> 2020-2021 PROJECTIONS</h2>
-            <table class = "sortable styled-table">
+            <input type="text" id="myInput" onkeyup="filterNames()" placeholder="Enter name..." title="Name">
+            <table id = "datatable" class = "sortable styled-table">
                 <tr>
                     <th>Player</th>
                     <th>Team</th>
@@ -85,4 +86,26 @@
             </table>
         </main>
     </body>
+
+    <!-- Function to filter the names of a table -->
+    <script>
+        function filterNames() {
+            let input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput"); // gets the input
+            filter = input.value.toUpperCase(); // case does not matter
+            table = document.getElementById("datatable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0]; // searches "name" since name is indexed at 0
+                if (td) {
+                    txtValue = td.textContent || td.innerText; // gets the text of the line
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = ""; // displays the row
+                    } else {
+                        tr[i].style.display = "none"; // hides the row
+                    }
+                }
+            }
+        }
+    </script>
 </html>

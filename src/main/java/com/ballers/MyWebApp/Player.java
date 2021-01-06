@@ -41,6 +41,7 @@ public class Player {
     public double totalTHREES;
     public double totalTO;
     public int rank;
+
     public Player(Element e) {
         NAME = e.getElementsByTagName("name").item(0).getTextContent();
         TEAM = e.getElementsByTagName("team").item(0).getTextContent();
@@ -62,6 +63,7 @@ public class Player {
         totalTHREES = Double.parseDouble(e.getElementsByTagName("THREES").item(0).getTextContent());
         TO = Math.floor(Double.parseDouble(e.getElementsByTagName("TO").item(0).getTextContent()) / GAMES * 100) / 100;
         totalTO = Double.parseDouble(e.getElementsByTagName("TO").item(0).getTextContent());
+        rank = 0;
     }
 
     public double findValue() {
@@ -75,7 +77,7 @@ public class Player {
          * Using Z score to calculate player additive values.
          */
         calculatedValue += (totalPTS-(.878*443.254))/(.878*422) + (totalAST-(.878*97.45))/(.878*114) + (totalREB-(.878*182.138))/(.878*168) + (totalSTL-(.878*30.562))/(.878*27.02) + (totalBLK-(.878*20.098))/(.878*25.12) + (totalTHREES-(.878*47.84))/(.878*55) - (totalTO-(.878*55.326))/(.878*54);
-        if (FT == 0) {
+        if (FT != 0) {
             if (POS.equals("C"))
             estimatedFTM += 	0.16426 * totalPTS;
             estimatedFTA = estimatedFTM * (1/FT);
@@ -97,7 +99,7 @@ public class Player {
             estimatedFTA = estimatedFTM * (1/FT);
             calculatedValue += (0.774891774892 - ((38664 - estimatedFTM) / (49896 - estimatedFTA)))/0.774891774892;
         }
-        if (FG == 0) {
+        if (FG != 0) {
             if (POS.equals("C")) {
                 estimatedFGM = .3922 * totalPTS;
                 estimatedFGA = estimatedFGM/FG;

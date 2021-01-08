@@ -32,7 +32,6 @@
                 <tr>
                     <th>Rank</th>
                     <th>Player</th>
-                    <th>Value</th>
                     <th>Team</th>
                     <th>Position</th>
                     <th>Games</th>
@@ -57,7 +56,6 @@
                 <tr class="item">
                     <td><%=p.rank%></td>
                     <td><%=p.NAME%></td>
-                    <td><%=p.findValue()%></td>
                     <td><%=p.TEAM%></td>
                     <td><%=p.POS%></td>
                     <td><%=p.GAMES%></td>

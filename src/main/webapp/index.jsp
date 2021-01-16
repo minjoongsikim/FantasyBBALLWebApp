@@ -24,7 +24,6 @@
                     <li><a href = "./servletone.jsp"> Player Values </a></li>
                     <li><a href="#">Pricing</a></li>
                     <li><a href="#">Terms of use</a></li>
-                    <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
         </header>
